@@ -1,4 +1,3 @@
-const body = document.querySelector("body")
 const menu = document.querySelector("div.menu")
 const back = document.querySelector("button")
 const select = document.querySelector("div.select")
@@ -9,6 +8,7 @@ const br = document.querySelector("div.br")
 const selected = document.getElementsByTagName("a");
 let clicked
 let click
+back.remove()
 for(let i = 1; i <= 7; i++){
     selected[i].addEventListener("click", () => {
         /*afryka.style.marginTop = "0px";*/
@@ -20,6 +20,7 @@ for(let i = 1; i <= 7; i++){
         for(n = 7;n>=1;n--){
             selected[n].remove();
         }
+        select.append(back)
         select.appendChild(click)
         br.remove()
         menu.remove()
@@ -31,12 +32,7 @@ for(let i = 1; i <= 7; i++){
             bcgk.src = "antarktyda.mp4"
         }
         back.addEventListener("click", () => {
-            vid.load();
-            bcgk.src = "inne.mp4"
-            body.append(menu)
-            select.classList.remove("new_select")
-            select.classList.add("select")
-            body.append(br)
+            location.reload();
         })
     });
 }
