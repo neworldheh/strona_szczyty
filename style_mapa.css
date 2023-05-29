@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    animation: right 2s;
+}
+button {
+    margin-left: -200px;
+    float: right;
+    width: 200px;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+}
+.btn {
+    background-color: rgba(128, 128, 128, 0.151);
+    border: 5px black solid;
+    border-radius: 0;
+    box-shadow: 10px 10px;
+    transition: all 0.3s;
+}
+.btn:hover {
+    box-shadow: none;
+}
+.btn:active {
+    outline: 4px grey solid;
+}
+a:hover{
+    cursor: pointer;
+}
+.afryka:hover {
+    color: rgb(235, 255, 54);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+.ameryka_pol:hover {
+
+    color: rgba(74, 235, 26, 0.822);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+.ameryka_pul:hover:hover {
+    color: rgb(83, 83, 83);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+.antarktyda:hover {
+    color: rgb(37, 255, 244);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+.australia:hover {
+    color: rgb(195, 255, 54);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+.eu:hover {
+    color: rgba(46, 202, 250, 0.781);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+.azja:hover {
+    /*transform: scale(1.05);*/
+    color: rgb(54, 255, 195);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+    letter-spacing: 3px;
+}
+/*a:hover {
+    transform: scale(1.1);
+    color: rgba(81, 248, 156, 0.822);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    transition-duration: 1.5s;
+}*/
+a::selection{
+    color: #7a7a7a;
+    /*background-color: #fff;*/
+}
+a:nth-child(2n){
+    animation: left 2s;
+}
+.menu {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    position: fixed;
+    animation: start 10s;
+    opacity: 0.8;
+}
+.menu.logo {
+position: relative;
+}
+.img_logo {
+    height: 50px;
+   /*width: 250px;
+   height: 50px;*/
+}
+.menu_title {
+    font-size: 40px;
+    display: grid;
+    place-items: center;
+    color: white;
+    float: right;
+}
+.menu_title:hover{
+    animation: selected 1.5s;
+}
+@keyframes start {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+@keyframes selected {
+    0%{
+        color: white;
+        letter-spacing: 0cm;
+    }
+    33%{
+        color: rgb(150, 150, 150);
+    }
+    50%{
+        letter-spacing: 0.2cm;
+    }
+    66%{
+        color: #5a5a5a;
+    }
+    100%{
+        color: white;
+        letter-spacing: 0cm;
+    }
+}
+.select {
+    width: 100%;
+    height: 600px;
+    font-size: 50px;
+    display: grid;
+    place-items: center;
+    position: fixed;
+}
+.new_select {
+    width: 100%;
+    font-size: 50px;
+    position: fixed;
+    text-align: center;
+    animation: centered 3s;
+}
+@keyframes centered {
+    0%{
+        top: 50%;
+        text-align: center;
+    }
+    to{
+        top: 0%;
+        text-align: center;
+    }
+}
+@keyframes left {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%,0,0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }   
+}
+@keyframes right {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%,0,0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+.other_stuff {
+    position: fixed;
+    text-align: center;
+    bottom: 100px;
+    margin-left: 40%;
+    color: white;
+}
