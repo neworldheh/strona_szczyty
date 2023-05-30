@@ -28,8 +28,12 @@ for(let i = 1; i <= 7; i++){
         hove.classList.remove(option[clicked - 1])
         select.classList.add("new_select")
         vid.load();
-        if(clicked === 4){
+        /*if(clicked === 4){
             bcgk.src = "antarktyda.mp4"
+        }*/
+        switch(clicked){
+        case 1: 
+        case
         }
         back.addEventListener("click", () => {
             location.reload();
