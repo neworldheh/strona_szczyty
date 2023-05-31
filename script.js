@@ -37,7 +37,34 @@ for(let i = 1; i <= 7; i++){
             location.reload();
         })
         vid.remove()
-        if(i === 4){
+        if(i === 1){
+            body.style.backgroundImage = "url('afryka.jpg')"
+            body.append(info)
+            window.addEventListener("scroll", () => {
+                let scroll = window.pageYOffset;
+                    let speed = info.dataset.speed
+                    info.style.transform = `translateY(${scroll * speed}px)`
+            })
+        }
+        else if(i === 2){
+            body.style.backgroundImage = "url('ameryka_pol.jpg')"
+            body.append(info)
+            window.addEventListener("scroll", () => {
+                let scroll = window.pageYOffset;
+                    let speed = info.dataset.speed
+                    info.style.transform = `translateY(${scroll * speed}px)`
+            })
+        }
+        else if(i === 3){
+            body.style.backgroundImage = "url('ameryka_pul.jpg')"
+            body.append(info)
+            window.addEventListener("scroll", () => {
+                let scroll = window.pageYOffset;
+                    let speed = info.dataset.speed
+                    info.style.transform = `translateY(${scroll * speed}px)`
+            })
+        }
+        else if(i === 4){
             body.style.backgroundImage = "url('antarktyda.jpg')"
             body.append(info)
             window.addEventListener("scroll", () => {

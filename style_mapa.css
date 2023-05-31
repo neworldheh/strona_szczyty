@@ -5,6 +5,7 @@
 }
 body {
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    background-color: #000;
 }
 #myVideo {
     position: fixed;
