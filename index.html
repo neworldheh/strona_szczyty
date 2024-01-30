@@ -161,7 +161,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 200vh; /* Wysoki kontener dla efektu "slime" */
+      height: 200vh;
+      overflow: hidden;
     }
 
     #text-container {
@@ -233,7 +234,6 @@
       color: white;
     }
 
-    /* Efekt "slime" */
     #slime {
       position: fixed;
       bottom: 0;
@@ -255,12 +255,11 @@
       <p>Czy wyjdziesz ze mną, jak wrócę z ferii?</p>
       <div id="buttons">
         <div class="button" id="yes-button" onclick="showKCC()">Tak</div>
-        <div class="button" id="no-button" onclick="hideOverlay()">Nie</div>
+        <div class="button" id="no-button" onclick="triggerFireworks()">Nie</div>
       </div>
     </div>
   </div>
 
-  <!-- Efekt "slime" -->
   <div id="slime"></div>
 
   <script>
@@ -283,13 +282,32 @@
       }, 50);
     }
 
-    // Efekt "slime" przy scrollowaniu
-    window.addEventListener('scroll', function() {
-      var scrollHeight = document.documentElement.scrollHeight;
-      var scrolled = window.scrollY;
-      var slime = document.getElementById('slime');
-      slime.style.height = (scrolled / scrollHeight) * 100 + 'vh';
-    });
+    function triggerFireworks() {
+      // Funkcja do generowania fajerwerków
+      function createFirework() {
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+        document.body.appendChild(firework);
+
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+
+        firework.style.left = `${posX}px`;
+        firework.style.top = `${posY}px`;
+
+        firework.addEventListener('animationend', () => {
+          firework.remove();
+        });
+      }
+
+      // Funkcja do generowania fajerwerków co pewien czas
+      function generateFireworks() {
+        setInterval(createFirework, 150);
+      }
+
+      generateFireworks();
+      hideOverlay();
+    }
   </script>
 
 </body>
