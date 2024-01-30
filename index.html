@@ -144,7 +144,7 @@
     <script src="script.js"></script>
     <!--<div class="other_stuff">Autorzy: Staś Rąbczewski, Maciek Hajduk</div>*/-->
 </body>
-</html> */-->
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,18 +154,19 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      background-color: #2c3e50;
       text-align: center;
       margin: 0;
       padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 200vh; /* Wysoki kontener dla efektu "slime" */
     }
 
     #text-container {
-      max-width: 100%;
+      max-width: 80%;
+      margin: 0 auto;
       position: relative;
       transition: transform 0.3s ease-in-out;
       cursor: pointer;
@@ -190,7 +191,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: #ecf0f1;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -223,13 +224,26 @@
     }
 
     #yes-button {
-      background-color: #4CAF50;
+      background-color: #2ecc71;
       color: white;
     }
 
     #no-button {
-      background-color: #f44336;
+      background-color: #e74c3c;
       color: white;
+    }
+
+    /* Efekt "slime" */
+    #slime {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #2ecc71;
+      height: 0;
+      width: 100%;
+      z-index: -1;
+      transition: height 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -245,6 +259,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Efekt "slime" -->
+  <div id="slime"></div>
 
   <script>
     function showKCC() {
@@ -265,6 +282,14 @@
         document.getElementById('overlay').style.opacity = '1';
       }, 50);
     }
+
+    // Efekt "slime" przy scrollowaniu
+    window.addEventListener('scroll', function() {
+      var scrollHeight = document.documentElement.scrollHeight;
+      var scrolled = window.scrollY;
+      var slime = document.getElementById('slime');
+      slime.style.height = (scrolled / scrollHeight) * 100 + 'vh';
+    });
   </script>
 
 </body>
