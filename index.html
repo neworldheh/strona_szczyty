@@ -150,7 +150,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kliknij mnie</title>
+  <title>Zaproszenie na środę na manu</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -161,49 +161,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 200vh;
-      overflow: hidden;
+      height: 100vh;
     }
 
-    #text-container {
+    #invite-container {
       max-width: 80%;
       margin: 0 auto;
       position: relative;
-      transition: transform 0.3s ease-in-out;
-      cursor: pointer;
-    }
-
-    #click-me-text {
-      font-size: 24px;
-      padding: 20px;
-      background-color: #3498db;
       color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease-in-out;
     }
 
-    #click-me-text:hover {
-      transform: scale(1.1);
-    }
-
-    #overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #ecf0f1;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    #overlay p {
-      margin: 0;
-      font-size: 18px;
+    h1 {
+      font-size: 28px;
     }
 
     #buttons {
@@ -217,6 +186,8 @@
       cursor: pointer;
       border-radius: 5px;
       margin: 0 10px;
+      background-color: #3498db;
+      color: white;
       transition: transform 0.2s ease-in-out;
     }
 
@@ -224,89 +195,44 @@
       transform: scale(1.1);
     }
 
-    #yes-button {
-      background-color: #2ecc71;
-      color: white;
+    #time-picker {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
 
-    #no-button {
-      background-color: #e74c3c;
-      color: white;
-    }
-
-    #slime {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #2ecc71;
-      height: 0;
-      width: 100%;
-      z-index: -1;
-      transition: height 0.3s ease-in-out;
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #3498db;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
 
-  <div id="text-container">
-    <div id="click-me-text" onclick="showOverlay()">Kliknij mnie</div>
-    <div id="overlay">
-      <p>Czy wyjdziesz ze mną, jak wrócę z ferii?</p>
-      <div id="buttons">
-        <div class="button" id="yes-button" onclick="showKCC()">Tak</div>
-        <div class="button" id="no-button" onclick="triggerFireworks()">Nie</div>
-      </div>
+  <div id="invite-container">
+    <h1>Czy chcesz iść w środę na manu?</h1>
+    <div id="buttons">
+      <div class="button" onclick="sendConfirmation('tak')">Tak</div>
+      <div class="button" onclick="sendConfirmation('nie')">Nie</div>
+    </div>
+
+    <div id="time-picker">
+      <label for="meeting-time">Wybierz godzinę:</label>
+      <input type="time" id="meeting-time" name="meeting-time" min="08:00" max="18:00" required>
     </div>
   </div>
 
-  <div id="slime"></div>
-
   <script>
-    function showKCC() {
-      alert('KCC ✨');
-      hideOverlay();
-    }
+    function sendConfirmation(response) {
+      const selectedTime = document.getElementById('meeting-time').value;
 
-    function hideOverlay() {
-      document.getElementById('overlay').style.opacity = '0';
-      setTimeout(() => {
-        document.getElementById('overlay').style.display = 'none';
-      }, 300);
-    }
+      // Tutaj musisz dodać kod do wysyłania e-maila na odpowiedni serwer backendowy
+      // i obsługi tego na serwerze. Poniżej znajduje się tylko przykładowy alert.
 
-    function showOverlay() {
-      document.getElementById('overlay').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('overlay').style.opacity = '1';
-      }, 50);
-    }
-
-    function triggerFireworks() {
-      // Funkcja do generowania fajerwerków
-      function createFirework() {
-        const firework = document.createElement('div');
-        firework.className = 'firework';
-        document.body.appendChild(firework);
-
-        const posX = Math.random() * window.innerWidth;
-        const posY = Math.random() * window.innerHeight;
-
-        firework.style.left = `${posX}px`;
-        firework.style.top = `${posY}px`;
-
-        firework.addEventListener('animationend', () => {
-          firework.remove();
-        });
-      }
-
-      // Funkcja do generowania fajerwerków co pewien czas
-      function generateFireworks() {
-        setInterval(createFirework, 150);
-      }
-
-      generateFireworks();
-      hideOverlay();
+      alert(`Dziękujemy za odpowiedź! Wybrano opcję: ${response}. Spotkajmy się o godzinie: ${selectedTime}`);
     }
   </script>
 
